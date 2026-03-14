@@ -36,7 +36,7 @@ Users spend credits to access interview sessions
 
 Credits can be purchased through Razorpay payment gateway
 
-💻 Tech Stack
+**Tech Stack
 Frontend
 
 React.js
@@ -67,7 +67,7 @@ Deployment
 
 Render
 
-📂 Project Structure
+** Project Structure
 PrepX-AI
 │
 ├── client
@@ -119,21 +119,8 @@ npm run server
 Frontend:
 
 npm start
-🌐 Deployment
 
-The project is deployed using Render.
-
-Steps:
-
-Push project to GitHub
-
-Connect GitHub repository to Render
-
-Configure environment variables
-
-Deploy backend and frontend services
-
-🎯 Use Cases
+****** Use Cases*******
 
 • Students preparing for job interviews
 • Developers practicing technical interviews
@@ -141,7 +128,7 @@ Deploy backend and frontend services
 • AI-based mock interview platforms
 • SaaS learning project for MERN developers
 
-📸 Future Improvements
+****** Future Improvements******
 
 🔹 AI voice interview simulation
 🔹 Real-time interview analysis
@@ -149,15 +136,7 @@ Deploy backend and frontend services
 🔹 Interview performance analytics
 🔹 Multi-language support
 
-👨‍💻 Author
+******Author*********
 
 Saurabh Bisht
 
-GitHub:
-https://github.com/Saurabhbisht07
-
-⭐ Support
-
-If you like this project, please ⭐ star the repository.
-
-If you want, I can also give you an even more impressive README with badges, screenshots, demo section, and animations so your GitHub looks like a senior developer project.
