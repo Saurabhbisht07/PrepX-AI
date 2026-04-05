@@ -63,14 +63,14 @@ function Step3Report({ report }) {
 
     let currentY = 25;
     
-    // Set Dark Background
-    doc.setFillColor(15, 23, 42); // slate-900 
+    // Set Light Background
+    doc.setFillColor(244, 246, 250); // dashboard light bg
     doc.rect(0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height, "F");
 
     // ================= TITLE =================
     doc.setFont("helvetica", "bold");
     doc.setFontSize(24);
-    doc.setTextColor(255, 255, 255);
+    doc.setTextColor(15, 23, 42); // slate-900
     doc.text("PrepX Interview Report", pageWidth / 2, currentY, {
       align: "center",
     });
@@ -78,20 +78,20 @@ function Step3Report({ report }) {
     currentY += 8;
 
     // Gradient-like underline (Approximation w/ solid color)
-    doc.setDrawColor(192, 132, 252); // purple-400
+    doc.setDrawColor(99, 102, 241); // indigo-500
     doc.setLineWidth(1);
     doc.line(margin, currentY, pageWidth - margin, currentY);
 
     currentY += 15;
 
     // ================= FINAL SCORE BOX =================
-    doc.setFillColor(30, 41, 59); // slate-800
-    doc.setDrawColor(244, 114, 182); // pink-400 border
+    doc.setFillColor(255, 255, 255); // white
+    doc.setDrawColor(226, 232, 240); // slate-200 border
     doc.setLineWidth(0.5);
     doc.roundedRect(margin, currentY, contentWidth, 25, 4, 4, "FD");
 
     doc.setFontSize(16);
-    doc.setTextColor(255, 255, 255);
+    doc.setTextColor(15, 23, 42); // slate-900
     doc.text(
       `Final Score: ${finalScore}/10`,
       pageWidth / 2,
@@ -102,12 +102,12 @@ function Step3Report({ report }) {
     currentY += 35;
 
     // ================= SKILLS BOX =================
-    doc.setFillColor(30, 41, 59); // slate-800
-    doc.setDrawColor(192, 132, 252); // purple-400 border
+    doc.setFillColor(255, 255, 255); // white
+    doc.setDrawColor(226, 232, 240); // slate-200 border
     doc.roundedRect(margin, currentY, contentWidth, 35, 4, 4, "FD");
 
     doc.setFontSize(12);
-    doc.setTextColor(226, 232, 240); // slate-200
+    doc.setTextColor(51, 65, 85); // slate-700
 
     doc.text(`Confidence: ${confidence} / 10`, margin + 10, currentY + 12);
     doc.text(`Communication: ${communication} / 10`, margin + 10, currentY + 20);
@@ -129,17 +129,17 @@ function Step3Report({ report }) {
         "Significant improvement required. Focus on structured thinking, clarity, and confident delivery. Practice answering aloud regularly.";
     }
 
-    doc.setFillColor(30, 41, 59); // slate-800
-    doc.setDrawColor(71, 85, 105); // slate-600 border
+    doc.setFillColor(255, 255, 255); // white
+    doc.setDrawColor(226, 232, 240); // slate-200 border
     doc.roundedRect(margin, currentY, contentWidth, 35, 4, 4, "FD");
 
     doc.setFont("helvetica", "bold");
-    doc.setTextColor(244, 114, 182); // pink-400
+    doc.setTextColor(99, 102, 241); // indigo-500
     doc.text("AI Feedback & Professional Advice", margin + 10, currentY + 10);
 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(11);
-    doc.setTextColor(203, 213, 225); // slate-300
+    doc.setTextColor(51, 65, 85); // slate-700
 
     const splitAdvice = doc.splitTextToSize(advice, contentWidth - 20);
     doc.text(splitAdvice, margin + 10, currentY + 20);
@@ -161,11 +161,11 @@ function Step3Report({ report }) {
         fontSize: 9,
         cellPadding: 5,
         valign: "top",
-        textColor: [226, 232, 240], // slate-200
+        textColor: [51, 65, 85], // slate-700
       },
       headStyles: {
-        fillColor: [192, 132, 252], // purple-400
-        textColor: [15, 23, 42], // slate-900
+        fillColor: [99, 102, 241], // indigo-500
+        textColor: [255, 255, 255], // white
         halign: "center",
         fontStyle: "bold"
       },
@@ -176,11 +176,11 @@ function Step3Report({ report }) {
         3: { cellWidth: "auto" }, // feedback
       },
       alternateRowStyles: {
-        fillColor: [30, 41, 59], // slate-800
+        fillColor: [248, 250, 252], // slate-50
       },
       bodyStyles: {
-        fillColor: [15, 23, 42], // slate-900
-        lineColor: [71, 85, 105], // slate-600
+        fillColor: [255, 255, 255], // white
+        lineColor: [226, 232, 240], // slate-200
         lineWidth: 0.1,
       }
     });
@@ -190,13 +190,13 @@ function Step3Report({ report }) {
 
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
-    doc.setTextColor(244, 114, 182); // pink-400
+    doc.setTextColor(99, 102, 241); // indigo-500
     doc.text("Saurabh Bisht", margin, finalY);
     
     finalY += 6;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
-    doc.setTextColor(148, 163, 184); // slate-400
+    doc.setTextColor(100, 116, 139); // slate-500
     doc.text("For queries direct souravbst007@gmail.com", margin, finalY);
 
     

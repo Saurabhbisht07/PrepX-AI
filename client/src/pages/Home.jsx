@@ -41,7 +41,6 @@ function Home() {
 
           <div className='flex justify-center mb-10'>
             <div className='glass-nav text-gray-300 text-sm px-5 py-2.5 rounded-full flex items-center gap-3 shadow-[0_0_20px_rgba(168,85,247,0.2)] border border-purple-500/30'>
-              <HiSparkles size={18} className="text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.8)]" />
               <span className='font-medium tracking-wide'>AI-Powered Smart Interview Platform</span>
             </div>
 

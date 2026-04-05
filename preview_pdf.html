@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body style="margin:0; padding:0; height:100vh;">
+    <iframe id="pdf-frame" style="width:100%; height:100%; border:none;"></iframe>
+    <script>
+        window.onload = function() {
+            const { jsPDF } = window.jspdf;
+            
+            const finalScore = 7;
+            const confidence = 8;
+            const communication = 6;
+            const correctness = 7;
+            const questionWiseScore = [
+                { question: "Can you tell me about yourself?", score: 8, feedback: "Good introduction." },
+                { question: "What are your weaknesses?", score: 6, feedback: "Need more actionable items." }
+            ];
+
+            const doc = new jsPDF("p", "mm", "a4");
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const margin = 20;
+            const contentWidth = pageWidth - margin * 2;
+            let currentY = 25;
+            
+            doc.setFillColor(15, 23, 42); 
+            doc.rect(0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height, "F");
+
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(24);
+            doc.setTextColor(255, 255, 255);
+            doc.text("PrepX Interview Report", pageWidth / 2, currentY, { align: "center" });
+
+            currentY += 8;
+
+            doc.setDrawColor(192, 132, 252);
+            doc.setLineWidth(1);
+            doc.line(margin, currentY, pageWidth - margin, currentY);
+
+            currentY += 15;
+
+            doc.setFillColor(30, 41, 59);
+            doc.setDrawColor(244, 114, 182);
+            doc.setLineWidth(0.5);
+            doc.roundedRect(margin, currentY, contentWidth, 25, 4, 4, "FD");
+
+            doc.setFontSize(16);
+            doc.setTextColor(255, 255, 255);
+            doc.text(`Final Score: ${finalScore}/10`, pageWidth / 2, currentY + 16, { align: "center" });
+
+            currentY += 35;
+
+            doc.setFillColor(30, 41, 59);
+            doc.setDrawColor(192, 132, 252);
+            doc.roundedRect(margin, currentY, contentWidth, 35, 4, 4, "FD");
+
+            doc.setFontSize(12);
+            doc.setTextColor(226, 232, 240);
+
+            doc.text(`Confidence: ${confidence} / 10`, margin + 10, currentY + 12);
+            doc.text(`Communication: ${communication} / 10`, margin + 10, currentY + 20);
+            doc.text(`Correctness: ${correctness} / 10`, margin + 10, currentY + 28);
+
+            currentY += 45;
+
+            let advice = "Good foundation shown. Improve clarity and structure. Practice delivering concise, confident answers with stronger supporting examples.";
+
+            doc.setFillColor(30, 41, 59);
+            doc.setDrawColor(71, 85, 105);
+            doc.roundedRect(margin, currentY, contentWidth, 35, 4, 4, "FD");
+
+            doc.setFont("helvetica", "bold");
+            doc.setTextColor(244, 114, 182);
+            doc.text("AI Feedback & Professional Advice", margin + 10, currentY + 10);
+
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(11);
+            doc.setTextColor(203, 213, 225);
+
+            const splitAdvice = doc.splitTextToSize(advice, contentWidth - 20);
+            doc.text(splitAdvice, margin + 10, currentY + 20);
+
+            currentY += 50;
+
+            doc.autoTable({
+              startY: currentY,
+              margin: { left: margin, right: margin },
+              head: [["#", "Question", "Score", "Feedback"]],
+              body: questionWiseScore.map((q, i) => [
+                `${i + 1}`,
+                q.question,
+                `${q.score}/10`,
+                q.feedback,
+              ]),
+              styles: { fontSize: 9, cellPadding: 5, valign: "top", textColor: [226, 232, 240] },
+              headStyles: { fillColor: [192, 132, 252], textColor: [15, 23, 42], halign: "center", fontStyle: "bold" },
+              columnStyles: {
+                0: { cellWidth: 10, halign: "center" },
+                1: { cellWidth: 55 },
+                2: { cellWidth: 20, halign: "center" },
+                3: { cellWidth: "auto" },
+              },
+              alternateRowStyles: { fillColor: [30, 41, 59] },
+              bodyStyles: { fillColor: [15, 23, 42], lineColor: [71, 85, 105], lineWidth: 0.1 }
+            });
+
+            let finalY = doc.lastAutoTable.finalY + 20;
+
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(14);
+            doc.setTextColor(244, 114, 182);
+            doc.text("Saurabh Bisht", margin, finalY);
+            
+            finalY += 6;
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(10);
+            doc.setTextColor(148, 163, 184);
+            doc.text("For queries direct souravbst007@gmail.com", margin, finalY);
+
+            const blob = doc.output('bloburl');
+            document.getElementById('pdf-frame').src = blob + '#toolbar=0&navpanes=0&scrollbar=0';
+        };
+    </script>
+</body>
+</html>

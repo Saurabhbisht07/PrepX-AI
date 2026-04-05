@@ -41,7 +41,7 @@ function Navbar() {
                 <div className='bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 text-2xl rounded-xl shadow-[0_0_15px_rgba(236,72,153,0.5)]'>
                     <BsRobot size={22}/>
                 </div>
-                <h1 className='font-bold hidden md:block text-2xl tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300'>PrepX</h1>
+                <h1 className='font-bold hidden md:block text-2xl tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600'>PrepX</h1>
             </div>
 
             <div className='flex items-center gap-6  relative'>

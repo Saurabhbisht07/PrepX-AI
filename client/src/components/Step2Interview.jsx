@@ -1,6 +1,5 @@
 import React from 'react'
-import maleVideo from "../assets/videos/male-ai.mp4"
-import femaleVideo from "../assets/videos/female-ai.mp4"
+import saurabhVideo from "../assets/videos/sourav.mp4"
 import Timer from './Timer'
 import { motion } from "motion/react"
 import { FaMicrophone, FaMicrophoneSlash } from "react-icons/fa";
@@ -41,26 +40,13 @@ function Step2Interview({ interviewData, onFinish }) {
       const voices = window.speechSynthesis.getVoices();
       if (!voices.length) return;
 
-      // Try known female voices first
-      const femaleVoice =
-        voices.find(v =>
-          v.name.toLowerCase().includes("zira") ||
-          v.name.toLowerCase().includes("samantha") ||
-          v.name.toLowerCase().includes("female")
-        );
-
-      if (femaleVoice) {
-        setSelectedVoice(femaleVoice);
-        setVoiceGender("female");
-        return;
-      }
-
-      // Try known male voices
+      // Try known male voices first
       const maleVoice =
         voices.find(v =>
           v.name.toLowerCase().includes("david") ||
           v.name.toLowerCase().includes("mark") ||
-          v.name.toLowerCase().includes("male")
+          v.name.toLowerCase().includes("male") ||
+          v.name.toLowerCase().includes("guy")
         );
 
       if (maleVoice) {
@@ -69,9 +55,9 @@ function Step2Interview({ interviewData, onFinish }) {
         return;
       }
 
-      // Fallback: first voice (assume female)
+      // Fallback: first voice available
       setSelectedVoice(voices[0]);
-      setVoiceGender("female");
+      setVoiceGender("male");
     };
 
     loadVoices();
@@ -79,7 +65,7 @@ function Step2Interview({ interviewData, onFinish }) {
 
   }, [])
 
-  const videoSource = voiceGender === "male" ? maleVideo : femaleVideo;
+  const videoSource = saurabhVideo;
 
 
   /* ---------------- SPEAK FUNCTION ---------------- */

@@ -4,51 +4,72 @@
 @layer base {
   body {
     font-family: 'Outfit', sans-serif;
-    background-color: #0b0f19;
-    color: #e2e8f0;
+    background-color: #f4f6face;
+    color: #1e293b;
     margin: 0;
   }
 }
 
 @layer utilities {
   .glass-nav {
-    background: rgba(17, 25, 40, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   }
   .glass-card {
-    background: rgba(30, 41, 59, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.03);
     transition: all 0.3s ease;
   }
   .glass-card:hover {
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 0 8px 32px rgba(168, 85, 247, 0.15);
+    border-color: #cbd5e1;
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.05);
     transform: translateY(-4px);
   }
   .text-gradient {
-    background: linear-gradient(135deg, #c084fc 0%, #ec4899 50%, #f43f5e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: initial;
+    color: #6366f1;
   }
   .btn-gradient {
-    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-    box-shadow: 0 4px 14px 0 rgba(236, 72, 153, 0.25);
+    background: #6366f1;
+    box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.25);
     color: white;
     transition: all 0.3s ease;
   }
   .btn-gradient:hover {
-    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+    background: #4f46e5;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
     transform: translateY(-2px);
   }
   .bg-mesh {
-    background-color: #0b0f19;
-    background-image: 
-      radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15), transparent 25%),
-      radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.15), transparent 25%);
+    background-color: #f4f6fa;
+    background-image: none;
+  }
+  /* Global Inversions for Dark to Light transition */
+  .text-white {
+    color: #0f172a !important; 
+  }
+  .text-gray-400, .text-gray-300 {
+    color: #475569 !important; 
+  }
+  .text-gray-500 {
+    color: #64748b !important;
+  }
+  .text-gray-200 {
+    color: #334155 !important;
+  }
+  .border-white\/10, .border-white\/20, .border-white\/5 {
+    border-color: #cbd5e1 !important;
+  }
+  .bg-white\/5, .bg-white\/10 {
+    background-color: #ffffff !important;
+  }
+  .bg-gray-900\/40, .bg-gray-900\/60, .bg-black\/40, .bg-black\/10 {
+    background-color: #f1f5f9 !important; 
   }
 }
